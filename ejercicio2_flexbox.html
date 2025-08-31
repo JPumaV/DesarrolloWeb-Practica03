@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Flexbox Breakpoints</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* Container holds all devices */
+  .container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Shared styles for all device frames */
+  .device {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 14px rgb(0 0 0 / 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Large device - for widths >= 900px */
+  .device.large {
+    width: 560px;
+    height: 350px;
+  }
+  /* Medium device - for widths between 480px and 900px */
+  .device.medium {
+    width: 400px;
+    height: 340px;
+  }
+  /* Small device - for widths <= 480px */
+  .device.small {
+    width: 250px;
+    height: 340px;
+  }
+
+  /* Common header bar */
+  .header {
+    background: black;
+    color: white;
+    padding: 12px 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header .burger {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    width: 20px;
+    height: 14px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .burger span {
+    display: block;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+  .header .small-title {
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    margin-bottom: 5px;
+    user-select: none;
+  }
+  .header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    user-select: none;
+    text-align: center;
+  }
+  .header button {
+    margin-top: 10px;
+    text-transform: uppercase;
+    background: #505050;
+    border: none;
+    padding: 5px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Content area */
+  .content {
+    flex: 1;
+    display: flex;
+    background: #fafafa;
+    padding: 20px 25px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Each card inside the content */
+  .card {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+  }
+  .card img {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .card p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    max-width: 110px;
+  }
+
+  /* Icons representation by simple shapes using embedded SVG or emojis replaced by minimal shape */
+
+  /* Responsive breakpoints */
+  @media (max-width: 900px) {
+    .container {
+      gap: 12px;
+    }
+
+    .device.large {
+      display: none;
+    }
+
+    .device.medium {
+      width: 100%;
+      max-width: 400px;
+      height: 340px;
+    }
+
+    .device.small {
+      flex-grow: 1;
+      max-width: 250px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .device.medium {
+      display: none;
+    }
+    .device.small {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      height: auto;
+    }
+    .content {
+      flex-direction: column;
+      gap: 25px;
+      padding: 20px 16px;
+    }
+    .card p {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Large Device -->
+    <section class="device large" aria-label="Large desktop screen device">
+      <div class="header">
+        <div class="burger" aria-label="Menu icon" role="img">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="small-title" aria-hidden="true">Beautiful responsive web sites</div>
+        <h2>BUILT WITH W3.CSS</h2>
+        <button type="button">LEARN W3.CSS</button>
+      </div>
+      <div class="content">
+        <article class="card" aria-label="Responsive info">
+          <img src="https://placehold.co/60x60?text=PC" alt="Icon: Black desktop monitor with stand on white background"/>
+          <h3>Responsive</h3>
+          <p>Built-in responsiveness Make it fluid grid Fits on screen sizes PC, Tablet and Mobile</p>
+        </article>
+        <article class="card" aria-label="Standard CSS info">
+          <img src="https://placehold.co/60x60?text=CSS3" alt="Icon: Black CSS3 logo on white background"/>
+          <h3>Standard CSS</h3>
+          <p>Standard CSS only Easy to learn No need for JQuery No JavaScript library</p>
+        </article>
+        <article class="card" aria-label="Design info">
+          <img src="https://placehold.co/60x60?text=Diamond" alt="Icon: Black diamond shape symbol on white background"/>
+          <h3>Design</h3>
+          <p>Paper-like design Sub-colors and shadows Fast across platforms Fast across browsers</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Medium Device -->
+    <section class="device medium" aria-label="Medium tablet screen device">
+      <div class="header">
+        <div class="burger" aria-label="Menu icon" role="img">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="small-title" aria-hidden="true">Beautiful responsive web sites</div>
+        <h2>BUILT WITH W3.CSS</h2>
+        <button type="button">LEARN W3.CSS</button>
+      </div>
+      <div class="content">
+        <article class="card" aria-label="Responsive info">
+          <img src="https://placehold.co/60x60?text=PC" alt="Icon: Black desktop monitor with stand on white background"/>
+          <h3>Responsive</h3>
+          <p>Built-in responsiveness Make it fluid grid Fits on screen sizes PC, Tablet and Mobile</p>
+        </article>
+        <article class="card" aria-label="Standard CSS info">
+          <img src="https://placehold.co/60x60?text=CSS3" alt="Icon: Black CSS3 logo on white background"/>
+          <h3>Standard CSS</h3>
+          <p>Standard CSS only Easy to learn No need for JQuery No JavaScript library</p>
+        </article>
+        <article class="card" aria-label="Design info">
+          <img src="https://placehold.co/60x60?text=Diamond" alt="Icon: Black diamond shape symbol on white background"/>
+          <h3>Design</h3>
+          <p>Paper-like design Sub-colors and shadows Fast across platforms Fast across browsers</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Small Device -->
+    <section class="device small" aria-label="Small mobile screen device">
+      <div class="header">
+        <div class="burger" aria-label="Menu icon" role="img">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="small-title" aria-hidden="true">Beautiful responsive web sites</div>
+        <h2>BUILT WITH W3.CSS</h2>
+        <button type="button">LEARN W3.CSS</button>
+      </div>
+      <div class="content" style="flex-direction: column; gap: 20px; padding: 10px 0 25px;">
+        <article class="card" aria-label="Responsive info">
+          <img src="https://placehold.co/60x60?text=PC" alt="Icon: Black desktop monitor with stand on white background"/>
+          <h3>Responsive</h3>
+          <p>Built-in responsiveness Make it fluid grid Fits on screen sizes PC, Tablet and Mobile</p>
+        </article>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
