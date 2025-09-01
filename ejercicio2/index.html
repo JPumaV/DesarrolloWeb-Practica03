@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cameras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">📷</div>
+      <ul class="nav-links">
+        <li><a href="#">CAMERAS</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="title">Cameras</h1>
+    <section class="products">
+      <article class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Smartphone"/>
+        <h3>Smartphone</h3>
+        <p>The best camera is the one that you carry 24/7.</p>
+        <div class="price">Price: 450€</div>
+        <div class="stock">In Stock</div>
+        <button>Add to cart</button>
+      </article>
+
+      <article class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Polaroid"/>
+        <h3>Some Old Polaroid Camera That Produces Hipstery Effects</h3>
+        <p>Get hipstery effects.</p>
+        <div class="price">Price: 450€</div>
+        <div class="stock">In Stock</div>
+        <button>Add to cart</button>
+      </article>
+
+      <article class="card">
+        <img src="https://via.placeholder.com/300x200" alt="GoPro"/>
+        <h3>GoPro Hero 4 Silver</h3>
+        <p>GoPro is the de facto choice for anyone interested in extreme sports...</p>
+        <div class="price">Price: 450€</div>
+        <div class="stock">In Stock</div>
+        <button>Add to cart</button>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    // Simple hamburger toggle
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
