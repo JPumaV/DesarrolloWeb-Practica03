@@ -1,0 +1,90 @@
+body { /* CUERPITO */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+header {    /* CABECERA */
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+header button {
+    background-color: #868686;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.feature {  /* Cartas para cada caracteristica */
+    flex: 1;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 8px rgb(177, 177, 177);
+}
+
+.feature img {  /* tamaño de imagenes/iconos */
+    width: 150px;
+    height: auto;
+}
+
+.feature h3 {
+    font-size: 24px;
+}
+
+.feature p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Primer breakpoint */
+@media (max-width: 900px) {
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        margin-bottom: 20px;
+	margin: 1;
+    }
+}
+
+/* Segundo breakpoint */
+@media (max-width: 480px) {
+
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        margin: 1 auto 20px auto;
+    }
+}
